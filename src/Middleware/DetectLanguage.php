@@ -10,7 +10,7 @@ class DetectLanguage
 {
     public function handle($request, Closure $next)
     {
-        $lang = BinshopsLanguage::where('locale', $request->route('locale'))
+        $lang = BinshopsLanguage::where('locale', $request->route('locale') ?? config('binshopsblog.default_language'))
             ->where('active', true)
             ->first();
 
