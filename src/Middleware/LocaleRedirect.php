@@ -14,9 +14,9 @@ class LocaleRedirect
 
         $fullUrl = $request->fullUrl();
 
-        if ((BinshopsLanguage::count() !== 1) && Str::contains($fullUrl, '/'.$locale.'/')){
-            $newUrl = str_replace('/'.$locale.'/', '', $fullUrl);
-            return redirect($newUrl);
+        if ($locale && (BinshopsLanguage::count() === 1) && Str::contains($fullUrl, '/'.$locale.'/')){
+            $newUrl = str_replace('/'.$locale.'/', '/', $fullUrl);
+            return redirect()->away($newUrl);
         }
 
         return $next($request);
