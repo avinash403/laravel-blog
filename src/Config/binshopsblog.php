@@ -5,6 +5,8 @@
 return [
     'default_language' => 'en',
 
+    'enable_multi_language' => false,
+
     //Your custom User model
     //Change it to \App\User::class for previous laravel versions
     'user_model'=>\App\Models\User::class,

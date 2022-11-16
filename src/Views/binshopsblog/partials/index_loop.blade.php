@@ -15,7 +15,7 @@
             @if (config('binshopsblog.show_full_text_at_list'))
                 <p>{!! $post->post_body_output() !!}</p>
             @else
-                <p>{!! mb_strimwidth($post->post_body_output(), 0, 400, "...") !!}</p>
+                <p>{!! substr(strip_tags($post->post_body_output()), 0, 400) !!}...</p>
             @endif
 
             <div class="post-details-bottom">
