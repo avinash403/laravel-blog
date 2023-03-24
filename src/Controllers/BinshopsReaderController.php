@@ -133,7 +133,7 @@ class BinshopsReaderController extends Controller
         $hierarchy = $request->route('subcategories');
 
         $categories = explode('/', $hierarchy);
-        return $this->index($request->get('locale'), $request, end($categories));
+        return $this->index($request, $request->get('locale'), end($categories));
     }
 
     /**
